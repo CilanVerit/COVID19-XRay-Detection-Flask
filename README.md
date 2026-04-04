@@ -1,5 +1,25 @@
 # A deep learning-powered web application for classifying chest X-ray images into COVID-19, Pneumonia, and Normal cases.
+- Achieves ~99.5% classification accuracy on 10k+ images  
+- Supports real-time inference via Flask API (~100ms latency)  
+- Outputs probabilistic predictions for improved interpretability  
+- Extended with LLM-based diagnostic summarization (2026)
 
+## Notes
+Originally developed as a 2-person university project (2024). The codebase has been recently refactored and documented to reflect production-oriented structure and deployment practices.
+
+## My Contributions
+- Led the development of the Flask-based inference API  
+- Implemented the image preprocessing and prediction pipeline  
+- Integrated the trained deep learning model into the deployment workflow  
+- Contributed to designing the workflow from image upload to model prediction and result output
+- Added LLM-based diagnostic summarization to generate human-readable insights from model predictions (2026)
+
+## System Workflow
+1. User uploads chest X-ray image  
+2. Image is preprocessed (resize, normalization, batching)  
+3. Model performs classification using hybrid CNN architecture  
+4. API returns predicted label + probability scores  
+5. (2026) LLM generates human-readable diagnostic summary  
 
 ## Model Training
 
