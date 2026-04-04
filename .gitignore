@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+
+# OS
+.DS_Store
+
+# Uploads
+uploads/
+
+# Model file (too large)
+*.hdf5
+
+# Environment variables
+.env
