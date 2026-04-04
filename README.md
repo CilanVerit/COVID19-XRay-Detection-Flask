@@ -31,7 +31,7 @@ I have used a concatenation of ResNet50V2 and Xception networks as the network f
 three classes: Normal, Pneumonia, and COVID-19.
 
 <p align="center">
-	<img src="static/concatenated_net.png" alt="photo not available" width="100%" height="70%">
+	<img src="![Model Architecture](https://raw.githubusercontent.com/CilanVerit/covid19-xray-detection-flask-app/main/static/concatenated_net.png)static/concatenated_net.png" alt="photo not available" width="100%" height="70%">
 	<br>
 	<em>The architecture of our model network</em>
 </p>
