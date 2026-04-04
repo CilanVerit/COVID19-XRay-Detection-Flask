@@ -56,6 +56,14 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .ai-summary {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+            font-size: 16px;
+        }
     </style>
 </head>
 
@@ -70,6 +78,11 @@
         <li>{{ class }}: {{ prob * 100 }}%</li>
         {% endfor %}
     </ul>
+
+    <h2>AI Explanation</h2>
+    <div class="ai-summary">
+        {{ summary | safe }}
+    </div>
 
     <!-- Form để người dùng tải lên ảnh mới mà không cần quay lại -->
     <form action="/predict" method="post" enctype="multipart/form-data">

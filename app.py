@@ -1,9 +1,15 @@
 import os
+from dotenv import load_dotenv
+from llm_utils import generate_diagnosis
 import numpy as np
 import cv2
 import tensorflow as tf
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
+import markdown
+
+# Load AI
+load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -64,9 +70,18 @@ def predict():
         # Get prediction probabilities for each class
         prediction_probabilities = {CLASS_LABELS[i]: round(float(prediction[0][i]), 4) for i in range(len(CLASS_LABELS))}
 
-        # Return the result to the user
-        return render_template('result.html', label=predicted_label, filename=filename, probabilities=prediction_probabilities)
+        # Generate AI explanation using LLM
+        summary = generate_diagnosis(predicted_label, prediction_probabilities)
+        summary = markdown.markdown(summary)
 
+        # Return the result to the user
+        return render_template(
+            'result.html',
+            label=predicted_label,
+            filename=filename,
+            probabilities=prediction_probabilities,
+            summary=summary
+)
     return redirect(request.url)
 
 # Route to display the uploaded image
@@ -75,4 +90,4 @@ def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)

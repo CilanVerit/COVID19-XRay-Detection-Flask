@@ -12,7 +12,7 @@ Originally developed as a 2-person university project (2024). The codebase has b
 - Implemented the image preprocessing and prediction pipeline  
 - Integrated the trained deep learning model into the deployment workflow  
 - Contributed to designing the workflow from image upload to model prediction and result output
-
+- (2026) Added LLM to generate human-readable diagnostic summary  
 
 ## System Workflow
 1. User uploads chest X-ray image  
@@ -27,8 +27,7 @@ Originally developed as a 2-person university project (2024). The codebase has b
 
 - The model training method follows the same approach as outlined in [this repository](https://github.com/mr7495/covid19). The methodology is detailed in the associated [research paper](https://www.sciencedirect.com/science/article/pii/S2352914820302537?via%3Dihub).
 
-We have used a concatenation of ResNet50V2 and Xception networks as the network for classifying the images into 
-three classes: Normal, Pneumonia, and COVID-19.
+The model uses a concatenation of ResNet50V2 and Xception architectures to classify chest X-ray images into three classes: Normal, Pneumonia, and COVID-19.
 
 <p align="center">
 	<img src="static/concatenated_net.png" alt="photo not available" width="600">
