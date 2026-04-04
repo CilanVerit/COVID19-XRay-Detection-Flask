@@ -79,6 +79,6 @@ The model uses a concatenation of ResNet50V2 and Xception architectures to class
 	<br>
 	<img src="static/web2_ai.png" alt="photo not available" width="600">
 	<br>
-    <em>The simple web app</em>
+    <em>The simple web application</em>
 
 </p>
