@@ -12,7 +12,7 @@ Originally developed as a 2-person university project (2024). The codebase has b
 - Implemented the image preprocessing and prediction pipeline  
 - Integrated the trained deep learning model into the deployment workflow  
 - Contributed to designing the workflow from image upload to model prediction and result output
-- Added LLM-based diagnostic summarization to generate human-readable insights from model predictions (2026)
+
 
 ## System Workflow
 1. User uploads chest X-ray image  

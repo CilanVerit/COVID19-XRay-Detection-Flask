@@ -8,9 +8,6 @@ venv/
 # OS
 .DS_Store
 
-# Uploads
-uploads/
-
 # Model file (too large)
 *.hdf5
 
