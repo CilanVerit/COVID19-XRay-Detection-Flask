@@ -27,11 +27,11 @@ Originally developed as a 2-person university project (2024). The codebase has b
 
 - The model training method follows the same approach as outlined in [this repository](https://github.com/mr7495/covid19). The methodology is detailed in the associated [research paper](https://www.sciencedirect.com/science/article/pii/S2352914820302537?via%3Dihub).
 
-I have used a concatenation of ResNet50V2 and Xception networks as the network for classifying the images into 
+We have used a concatenation of ResNet50V2 and Xception networks as the network for classifying the images into 
 three classes: Normal, Pneumonia, and COVID-19.
 
 <p align="center">
-	<img src="![Model Architecture](https://raw.githubusercontent.com/CilanVerit/covid19-xray-detection-flask-app/main/static/concatenated_net.png)static/concatenated_net.png" alt="photo not available" width="100%" height="70%">
+	<img src="static/concatenated_net.png" alt="photo not available" width="600">
 	<br>
 	<em>The architecture of our model network</em>
 </p>
@@ -76,9 +76,9 @@ three classes: Normal, Pneumonia, and COVID-19.
 6. Open your web browser and go to http://127.0.0.1:5000/ to use the app.
 
 <p align="center">
-	<img src="static/web1.png" alt="photo not available" width="100%" height="70%">
+	<img src="static/web1.png" alt="photo not available" width="600">
 	<br>
-	<img src="static/web2.png" alt="photo not available" width="100%" height="70%">
+	<img src="static/web2.png" alt="photo not available" width="600">
 	<br>
     <em>The simple web app</em>
 
