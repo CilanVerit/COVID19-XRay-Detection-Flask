@@ -44,32 +44,34 @@ The model uses a concatenation of ResNet50V2 and Xception architectures to class
 
 ### Prerequisites
 
-- Python 3.10+
-- Flask
-- TensorFlow 
-- OpenCV
-- Numpy
+- Python 3.10
+- pip
 
 ### Setup
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/lltlien/covid19-xray-detection-flask-app.git
-   cd covid19-xray-detection-flask-app
+    git clone https://github.com/CilanVerit/COVID19-XRay-Detection-Flask.git
+    cd COVID19-XRay-Detection-Flask
 
 2. Create and activate a virtual environment:
 
     ```bash
     virtualenv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+    # Windows
+    venv\Scripts\activate
+
+    # macOS/Linux
+    source venv/bin/activate
 
 3. Install the required packages:
 
     ```bash
     pip install -r requirements.txt
 
-4. Download model to `covid19-xray-detection-flask-app` folder: [This link](https://github.com/lltlien/covid19-xray-detection-flask-app/releases/download/lastest/concatenate-fold3.hdf5)
+4. Download the trained model and place it in the project root directory: [This link](https://github.com/CilanVerit/COVID19-XRay-Detection-Flask/releases/download/model/concatenate-fold3.hdf5)
 
 5. Run the application:
 
