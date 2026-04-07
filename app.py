@@ -43,6 +43,16 @@ def preprocess_image(image_path):
     image = np.expand_dims(image, axis=0)  # Add batch dimension
     return image
 
+# Softmax prediction with temperature
+def apply_temperature(probs, T=2.5):
+    probs = np.power(probs, 1.0 / T)
+    return probs / np.sum(probs, axis=1, keepdims=True)
+
+# Smoothen probabilities
+def smooth_probs(probs, epsilon=0.05):
+    num_classes = probs.shape[1]
+    return (1 - epsilon) * probs + epsilon / num_classes
+
 # Define the home route
 @app.route('/')
 def home():
@@ -64,14 +74,29 @@ def predict():
         # Preprocess the image and get prediction
         image = preprocess_image(filepath)
         prediction = model.predict(image)
+
+        # Apply temperature scaling
+        prediction = apply_temperature(prediction, T=3.0)
+        # Then round probabilities
+        prediction = smooth_probs(prediction, epsilon=0.1)
+
         class_idx = np.argmax(prediction)
+
+        confidence = float(np.max(prediction))
+
         predicted_label = CLASS_LABELS[class_idx]
 
+        if confidence < 0.7:
+            predicted_label = "Uncertain - Needs Review"
+
         # Get prediction probabilities for each class
-        prediction_probabilities = {CLASS_LABELS[i]: round(float(prediction[0][i]), 4) for i in range(len(CLASS_LABELS))}
+        prediction_probabilities = {
+            CLASS_LABELS[i]: float(prediction[0][i])
+            for i in range(len(CLASS_LABELS))
+        }
 
         # Generate AI explanation using LLM
-        summary = generate_diagnosis(predicted_label, prediction_probabilities)
+        summary = generate_diagnosis(predicted_label, prediction_probabilities, confidence)
         summary = markdown.markdown(summary)
 
         # Return the result to the user
@@ -80,7 +105,8 @@ def predict():
             label=predicted_label,
             filename=filename,
             probabilities=prediction_probabilities,
-            summary=summary
+            summary=summary,
+            confidence=confidence
 )
     return redirect(request.url)
 
