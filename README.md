@@ -8,18 +8,22 @@
 Originally developed as a 2-person university project (2024). The codebase has been recently refactored and documented to reflect production-oriented structure and deployment practices.
 
 ## My Contributions
+### 2024
 - Led the development of the Flask-based inference API  
 - Implemented the image preprocessing and prediction pipeline  
 - Integrated the trained deep learning model into the deployment workflow  
 - Contributed to designing the workflow from image upload to model prediction and result output
-- (2026) Added LLM to generate human-readable diagnostic summary  
+### 2026
+- Integrated an LLM to generate human-readable diagnostic summaries from model outputs
+- Implemented Post-Hoc Calibration (temperature scaling and probability smoothing) to reduce model overconfidence
+- Enhanced inference pipeline with confidence estimation and uncertainty-aware outputs
 
 ## System Workflow
 1. User uploads chest X-ray image  
 2. Image is preprocessed (resize, normalization, batching)  
 3. Model performs classification using hybrid CNN architecture  
 4. API returns predicted label + probability scores  
-5. (2026) LLM generates human-readable diagnostic summary  
+5. LLM generates human-readable diagnostic summary  
 
 ## Model Training
 
